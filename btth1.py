@@ -67,6 +67,42 @@ while True:
 
         print(f"Tổng số sản phẩm hiện có trong giỏ: {len(cart_items)}")
         
+    elif choice == 3:
+        check_code_product = input("Nhập mã sản phẩm cần cập nhật số lượng: ")
+
+        isValid = False;
+
+        for index, value in enumerate(cart_items, start = 0):
+            if check_code_product == value[0]:
+                change_quantity = int(input(f"Nhập số lượng mới cho sản phẩm {value[1]}: "))
+                isValid = True;
+                if change_quantity > 0:
+                    value[2] = change_quantity
+                    print(f"Đã cập nhật số lượng mới cho sản phẩm {value[1]}")
+                    break;
+                else:
+                    print("Số lượng sản phẩm mới không hợp lệ!")
+                    break;
+    
+        if isValid == False:
+            print("Không tìm thấy sản phẩm cần tìm")
+    
+    elif choice == 4:
+        check_code_product = input("Nhập mã sản phẩm cần xóa: ")
+
+        isValid = False;
+
+        for index, value in enumerate(cart_items, start = 0):
+            if check_code_product == value[0]:
+                del cart_items[index]
+                isValid = True
+                print(f"Đã xóa thành công sản phẩm {value[1]}!")
+
+                break;
+                
+        if isValid == False:
+            print("Không tìm thấy sản phẩm cần tìm")
+        
     elif choice == 5:
         print("\nThoát chương trình!")
         break

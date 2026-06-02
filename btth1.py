@@ -13,12 +13,7 @@ while True:
     print("[4] Xóa sản phẩm khỏi giỏ hàng")
     print("[5] Thoát chương trình")
     print("="*50)
-    
-    try:
-        choice = int(input("Mời bạn chọn chức năng (1-5): "))
-    except ValueError:
-        print("❌ Lỗi: Vui lòng nhập vào một số nguyên từ 1 đến 5!")
-        continue
+    choice = int(input("Mời bạn chọn chức năng (1-5): "))
         
     if choice == 1:
         print("\n" + "-"*30 + " CHI TIẾT GIỎ HÀNG " + "-"*30)
@@ -48,7 +43,3 @@ while True:
     elif choice == 5:
         print("\nTạm biệt!")
         break
-    elif choice in [2, 3, 4]:
-        print(f"⚠️ Chức năng {choice} hiện tại chưa được triển khai.")
-    else:
-        print("❌ Lỗi: Lựa chọn không hợp lệ! Vui lòng chọn từ 1 đến 5.")

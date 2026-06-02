@@ -39,6 +39,33 @@ while True:
         print(f"⇒ Tổng số lượng sản phẩm trong giỏ: {total_quantity}")
         print(f"⇒ TỔNG TIỀN THANH TOÁN: {total_amount:,.0f}đ")
         print("-" * 85)
+
+    elif choice == 2:
+        product_id = input("Nhập mã sản phẩm: ")
+        product_name = input("Nhập tên sản phẩm: ")
+
+        quantity = int(input("Nhập số lượng: "))
+        price = int(input("Nhập đơn giá: "))
+
+        if quantity <= 0 or price < 0:
+            print("Lỗi: Số lượng phải > 0 và đơn giá không được âm.")
+            continue
+
+        found = False
+
+        for item in cart_items:
+            if item[0] == product_id:
+                item[2] += quantity
+                found = True
+                print(f"\nSản phẩm {product_id} đã tồn tại.")
+                print(f"Đã cộng dồn thêm {quantity} sản phẩm.")
+                break
+
+        if not found:
+            cart_items.append([product_id, product_name, quantity, price])
+            print("\nThêm sản phẩm mới thành công!")
+
+        print(f"Tổng số sản phẩm hiện có trong giỏ: {len(cart_items)}")
         
     elif choice == 5:
         print("\nThoát chương trình!")

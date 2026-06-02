@@ -41,5 +41,5 @@ while True:
         print("-" * 85)
         
     elif choice == 5:
-        print("\nTạm biệt!")
+        print("\nThoát chương trình!")
         break
